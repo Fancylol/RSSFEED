@@ -1,216 +1,633 @@
 import feedparser
-from datetime import datetime
+from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 import html
+import re
+
+
+# ============================================================
+# RSS-FEEDS
+# ============================================================
 
 FEEDS = [
     {
-        "name": "Quelle 1",
+        "name": "Cash Börse",
         "url": "http://www.cash.ch/rss/450.xml"
     },
     {
-        "name": "Quelle 2",
+        "name": "Cash Top-News",
         "url": "http://www.cash.ch/rss/771.xml"
     },
     {
-        "name": "Quelle 3",
+        "name": "Finanzen.ch News",
+        "url": "https://www.finanzen.ch/rss/news"
+    },
+    {
+        "name": "Finanzen.ch Analysen",
+        "url": "https://www.finanzen.ch/rss/analysen"
+    },
+    {
+        "name": "Handelsblatt Finanzen",
         "url": "https://www.handelsblatt.com/contentexport/feed/finanzen"
     },
     {
-        "name": "Quelle 4",
+        "name": "Handelsblatt Marktberichte",
         "url": "https://www.handelsblatt.com/contentexport/feed/marktberichte"
     }
 ]
 
+
+# ============================================================
+# EINSTELLUNGEN
+# ============================================================
+
+# Maximale Anzahl Artikel pro RSS-Feed
+ARTICLES_PER_FEED = 20
+
+# Maximale Anzahl Artikel auf der fertigen Seite
+MAX_ARTICLES = 30
+
+# Maximale Länge der Beschreibung
+DESCRIPTION_LENGTH = 180
+
+
+# ============================================================
+# HILFSFUNKTIONEN
+# ============================================================
+
+def clean_text(text):
+    """
+    Entfernt HTML-Tags und bereinigt RSS-Texte.
+    """
+
+    if not text:
+        return ""
+
+    # HTML-Tags entfernen
+    text = re.sub(r"<[^>]+>", " ", text)
+
+    # HTML-Entities umwandeln
+    text = html.unescape(text)
+
+    # Mehrfache Leerzeichen entfernen
+    text = re.sub(r"\s+", " ", text)
+
+    return text.strip()
+
+
+def shorten(text, length=180):
+    """
+    Kürzt die Beschreibung auf eine maximale Länge.
+    """
+
+    if not text:
+        return ""
+
+    if len(text) <= length:
+        return text
+
+    shortened = text[:length]
+
+    # Möglichst nicht mitten in einem Wort abschneiden
+    if " " in shortened:
+        shortened = shortened.rsplit(" ", 1)[0]
+
+    return shortened + "..."
+
+
+def get_date(entry):
+    """
+    Versucht das Publikationsdatum aus verschiedenen
+    RSS-Feldern auszulesen.
+    """
+
+    for field in [
+        "published",
+        "updated",
+        "created"
+    ]:
+
+        value = entry.get(field)
+
+        if value:
+
+            try:
+
+                date = parsedate_to_datetime(value)
+
+                if date.tzinfo is None:
+                    date = date.replace(
+                        tzinfo=timezone.utc
+                    )
+
+                return date
+
+            except Exception:
+                pass
+
+    # Falls kein Datum vorhanden ist
+    return datetime.min.replace(
+        tzinfo=timezone.utc
+    )
+
+
+# ============================================================
+# RSS-FEEDS EINLESEN
+# ============================================================
+
 articles = []
 
 for source in FEEDS:
-    feed = feedparser.parse(source["url"])
 
-    for entry in feed.entries[:15]:
+    print(
+        f"Lade RSS-Feed: {source['name']}"
+    )
 
-        date = None
+    feed = feedparser.parse(
+        source["url"]
+    )
 
-        if hasattr(entry, "published"):
-            try:
-                date = parsedate_to_datetime(entry.published)
-            except:
-                pass
+    if feed.bozo:
 
-        if date is None:
-            date = datetime.min
+        print(
+            f"Warnung bei {source['name']}: "
+            f"{feed.bozo_exception}"
+        )
+
+    print(
+        f"{len(feed.entries)} Einträge gefunden."
+    )
+
+    for entry in feed.entries[:ARTICLES_PER_FEED]:
+
+        title = clean_text(
+            entry.get(
+                "title",
+                ""
+            )
+        )
+
+        description = clean_text(
+            entry.get(
+                "summary",
+                entry.get(
+                    "description",
+                    ""
+                )
+            )
+        )
+
+        link = entry.get(
+            "link",
+            "#"
+        )
+
+        date = get_date(entry)
+
+        # Artikel ohne Titel überspringen
+        if not title:
+            continue
 
         articles.append({
-            "title": entry.get("title", ""),
-            "link": entry.get("link", "#"),
-            "description": entry.get("summary", ""),
-            "source": source["name"],
-            "date": date
+            "title": title,
+            "description": description,
+            "link": link,
+            "date": date,
+            "source": source["name"]
         })
 
-articles.sort(
-    key=lambda x: x["date"],
-    reverse=True
-)
 
-articles = articles[:30]
+# ============================================================
+# DUPLIKATE ENTFERNEN
+# ============================================================
 
-cards = ""
+unique_articles = []
+
+seen_links = set()
+seen_titles = set()
 
 for article in articles:
 
-    date_text = ""
+    link = article[
+        "link"
+    ].strip().lower()
 
-    if article["date"] != datetime.min:
-        date_text = article["date"].strftime("%d.%m.%Y %H:%M")
+    title = article[
+        "title"
+    ].strip().lower()
 
-    description = article["description"]
+    # Bereits vorhandene URL
+    if link and link != "#":
 
-    # Beschreibung etwas begrenzen
-    if len(description) > 400:
-        description = description[:400] + "..."
+        if link in seen_links:
+            continue
 
-    cards += f"""
-    <article class="news-card">
+    # Bereits vorhandener Titel
+    if title in seen_titles:
+        continue
 
-        <div class="meta">
-            {html.escape(article["source"])}
-            <span>·</span>
-            {date_text}
-        </div>
+    if link and link != "#":
+        seen_links.add(link)
 
-        <h2>
-            <a href="{html.escape(article["link"])}"
-               target="_blank"
-               rel="noopener">
-                {html.escape(article["title"])}
-            </a>
-        </h2>
+    seen_titles.add(title)
 
-        <div class="description">
+    unique_articles.append(
+        article
+    )
+
+
+articles = unique_articles
+
+
+# ============================================================
+# NACH DATUM SORTIEREN
+# ============================================================
+
+articles.sort(
+    key=lambda article: article["date"],
+    reverse=True
+)
+
+
+# Maximale Anzahl Beiträge
+articles = articles[:MAX_ARTICLES]
+
+
+# ============================================================
+# HTML FÜR ARTIKEL ERZEUGEN
+# ============================================================
+
+items_html = ""
+
+
+for article in articles:
+
+    title = html.escape(
+        article["title"]
+    )
+
+    description = html.escape(
+        shorten(
+            article["description"],
+            DESCRIPTION_LENGTH
+        )
+    )
+
+    link = html.escape(
+        article["link"],
+        quote=True
+    )
+
+    source = html.escape(
+        article["source"]
+    )
+
+
+    # Datum formatieren
+
+    if article["date"].year > 1900:
+
+        date_text = article[
+            "date"
+        ].strftime(
+            "%d.%m.%Y"
+        )
+
+    else:
+
+        date_text = ""
+
+
+    # Datum + Quelle
+
+    meta_parts = []
+
+    if date_text:
+        meta_parts.append(
+            date_text
+        )
+
+    if source:
+        meta_parts.append(
+            source
+        )
+
+    meta_text = " · ".join(
+        meta_parts
+    )
+
+
+    # Einzelnen Artikel erzeugen
+
+    items_html += f"""
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="{link}"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            {title}
+        </a>
+
+        <div class="secondaryText">
             {description}
         </div>
 
-        <a class="more"
-           href="{html.escape(article["link"])}"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
+        <div class="dateText">
+            {meta_text}
+        </div>
 
     </article>
     """
 
-page = f"""
-<!DOCTYPE html>
+
+# ============================================================
+# FALLS KEINE ARTIKEL GEFUNDEN WURDEN
+# ============================================================
+
+if not articles:
+
+    items_html = """
+    <div class="noArticles">
+        Aktuell sind keine Meldungen verfügbar.
+    </div>
+    """
+
+
+# ============================================================
+# KOMPLETTE HTML-SEITE
+# ============================================================
+
+page = f"""<!DOCTYPE html>
+
 <html lang="de">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<title>News</title>
+<title>Finanz-News</title>
+
 
 <style>
 
-body {{
-    margin: 0;
-    padding: 20px;
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
 
-    background: #ffffff;
-    color: #242424;
-}}
+    /* ==========================================
+       BASIS
+       ========================================== */
 
-.feed {{
-    max-width: 1000px;
-    margin: 0 auto;
-}}
+    * {{
+        box-sizing: border-box;
+    }}
 
-.news-card {{
-    padding: 20px 0;
-    border-bottom: 1px solid #e1e1e1;
-}}
 
-.news-card:first-child {{
-    padding-top: 0;
-}}
+    html {{
+        margin: 0;
+        padding: 0;
 
-.meta {{
-    font-size: 13px;
-    color: #616161;
-    margin-bottom: 6px;
-}}
+        background: transparent;
+    }}
 
-.meta span {{
-    margin: 0 5px;
-}}
 
-h2 {{
-    font-size: 20px;
-    line-height: 1.3;
-    margin: 0 0 10px 0;
-    font-weight: 600;
-}}
+    body {{
 
-h2 a {{
-    color: #242424;
-    text-decoration: none;
-}}
+        margin: 0;
+        padding: 0;
 
-h2 a:hover {{
-    text-decoration: underline;
-}}
+        background: transparent;
 
-.description {{
-    font-size: 15px;
-    line-height: 1.5;
-    color: #424242;
-}}
+        font-family:
+            "Segoe UI",
+            "Segoe UI Web (West European)",
+            -apple-system,
+            BlinkMacSystemFont,
+            Roboto,
+            "Helvetica Neue",
+            Arial,
+            sans-serif;
 
-.more {{
-    display: inline-block;
-    margin-top: 10px;
-    color: #0067b8;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-}}
+        color: #242424;
 
-.more:hover {{
-    text-decoration: underline;
-}}
+    }}
+
+
+    /* ==========================================
+       HAUPTBEREICH
+       ========================================== */
+
+    .template_root {{
+
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        font-family: inherit;
+
+        color: #242424;
+
+    }}
+
+
+    /* ==========================================
+       EINZELNER ARTIKEL
+       ========================================== */
+
+    .singleCard {{
+
+        display: block;
+
+        margin:
+            0
+            0
+            20px
+            0;
+
+        padding: 0;
+
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+
+    }}
+
+
+    /* ==========================================
+       ARTIKELTITEL
+       ========================================== */
+
+    .primaryText {{
+
+        display: block;
+
+        margin:
+            0
+            0
+            6px
+            0;
+
+        padding: 0;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        line-height: 20px;
+
+        font-weight: 600;
+
+        color: #242424;
+
+        text-decoration: none;
+
+        overflow-wrap: anywhere;
+
+    }}
+
+
+    .primaryText:link,
+    .primaryText:visited {{
+
+        color: #242424;
+
+        text-decoration: none;
+
+    }}
+
+
+    .primaryText:hover {{
+
+        color: #242424;
+
+        text-decoration: underline;
+
+    }}
+
+
+    /* ==========================================
+       BESCHREIBUNG
+       ========================================== */
+
+    .secondaryText {{
+
+        display: block;
+
+        margin:
+            0
+            0
+            6px
+            0;
+
+        padding: 0;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        line-height: 20px;
+
+        font-weight: 400;
+
+        color: #242424;
+
+        overflow-wrap: anywhere;
+
+    }}
+
+
+    /* ==========================================
+       DATUM + QUELLE
+       ========================================== */
+
+    .dateText {{
+
+        display: block;
+
+        margin: 0;
+
+        padding: 0;
+
+        font-family: inherit;
+
+        font-size: 12px;
+
+        line-height: 16px;
+
+        font-weight: 400;
+
+        color: #605e5c;
+
+    }}
+
+
+    /* ==========================================
+       KEINE ARTIKEL
+       ========================================== */
+
+    .noArticles {{
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        line-height: 20px;
+
+        color: #605e5c;
+
+    }}
+
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="feed">
 
-{cards}
+<div class="template_root">
+
+    {items_html}
 
 </div>
+
 
 </body>
 
 </html>
 """
 
+
+# ============================================================
+# INDEX.HTML SPEICHERN
+# ============================================================
+
 with open(
     "index.html",
     "w",
     encoding="utf-8"
-) as f:
-    f.write(page)
+) as file:
 
+    file.write(page)
+
+
+# ============================================================
+# STATUS
+# ============================================================
+
+print()
 print(
-    f"{len(articles)} Artikel verarbeitet."
+    f"Fertig: {len(articles)} Artikel veröffentlicht."
+)
+print(
+    f"Verwendete RSS-Feeds: {len(FEEDS)}"
 )
