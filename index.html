@@ -1,970 +1,873 @@
-
 <!DOCTYPE html>
+
 <html lang="de">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<title>News</title>
+<title>Finanz-News</title>
+
 
 <style>
 
-body {
-    margin: 0;
-    padding: 20px;
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
 
-    background: #ffffff;
-    color: #242424;
-}
+    /* ==========================================
+       BASIS
+       ========================================== */
 
-.feed {
-    max-width: 1000px;
-    margin: 0 auto;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-.news-card {
-    padding: 20px 0;
-    border-bottom: 1px solid #e1e1e1;
-}
 
-.news-card:first-child {
-    padding-top: 0;
-}
+    html {
+        margin: 0;
+        padding: 0;
 
-.meta {
-    font-size: 13px;
-    color: #616161;
-    margin-bottom: 6px;
-}
+        background: transparent;
+    }
 
-.meta span {
-    margin: 0 5px;
-}
 
-h2 {
-    font-size: 20px;
-    line-height: 1.3;
-    margin: 0 0 10px 0;
-    font-weight: 600;
-}
+    body {
 
-h2 a {
-    color: #242424;
-    text-decoration: none;
-}
+        margin: 0;
+        padding: 0;
 
-h2 a:hover {
-    text-decoration: underline;
-}
+        background: transparent;
 
-.description {
-    font-size: 15px;
-    line-height: 1.5;
-    color: #424242;
-}
+        font-family:
+            "Segoe UI",
+            "Segoe UI Web (West European)",
+            -apple-system,
+            BlinkMacSystemFont,
+            Roboto,
+            "Helvetica Neue",
+            Arial,
+            sans-serif;
 
-.more {
-    display: inline-block;
-    margin-top: 10px;
-    color: #0067b8;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-}
+        color: #242424;
 
-.more:hover {
-    text-decoration: underline;
-}
+    }
+
+
+    /* ==========================================
+       HAUPTBEREICH
+       ========================================== */
+
+    .template_root {
+
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        font-family: inherit;
+
+        color: #242424;
+
+    }
+
+
+    /* ==========================================
+       EINZELNER ARTIKEL
+       ========================================== */
+
+    .singleCard {
+
+        display: block;
+
+        margin:
+            0
+            0
+            20px
+            0;
+
+        padding: 0;
+
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+
+    }
+
+
+    /* ==========================================
+       ARTIKELTITEL
+       ========================================== */
+
+    .primaryText {
+
+        display: block;
+
+        margin:
+            0
+            0
+            6px
+            0;
+
+        padding: 0;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        line-height: 20px;
+
+        font-weight: 600;
+
+        color: #242424;
+
+        text-decoration: none;
+
+        overflow-wrap: anywhere;
+
+    }
+
+
+    .primaryText:link,
+    .primaryText:visited {
+
+        color: #242424;
+
+        text-decoration: none;
+
+    }
+
+
+    .primaryText:hover {
+
+        color: #242424;
+
+        text-decoration: underline;
+
+    }
+
+
+    /* ==========================================
+       BESCHREIBUNG
+       ========================================== */
+
+    .secondaryText {
+
+        display: block;
+
+        margin:
+            0
+            0
+            6px
+            0;
+
+        padding: 0;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        line-height: 20px;
+
+        font-weight: 400;
+
+        color: #242424;
+
+        overflow-wrap: anywhere;
+
+    }
+
+
+    /* ==========================================
+       DATUM + QUELLE
+       ========================================== */
+
+    .dateText {
+
+        display: block;
+
+        margin: 0;
+
+        padding: 0;
+
+        font-family: inherit;
+
+        font-size: 12px;
+
+        line-height: 16px;
+
+        font-weight: 400;
+
+        color: #605e5c;
+
+    }
+
+
+    /* ==========================================
+       KEINE ARTIKEL
+       ========================================== */
+
+    .noArticles {
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        line-height: 20px;
+
+        color: #605e5c;
+
+    }
+
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="feed">
 
+<div class="template_root">
 
-    <article class="news-card">
+    
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 11:54
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/es-wird-turbulent-volatilitat-und-risiken-werden-an-den-markten-nach-der-sommerpause-zunehmen-966882"
-               target="_blank"
-               rel="noopener">
-                «Es wird turbulent»: Volatilität und Risiken werden an den Märkten nach der Sommerpause zunehmen
-            </a>
-        </h2>
-
-        <div class="description">
-            Börsen - Die Finanzmärkte stehen vor einer unruhigen Zeit. Experten sehen den Ölpreis und anstehende US‑Wahlen als entscheidende Faktoren.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/es-wird-turbulent-volatilitat-und-risiken-werden-an-den-markten-nach-der-sommerpause-zunehmen-966882"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/so-stuften-die-analysten-die-amd-aktie-im-vergangenen-monat-ein-1036509239"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            So stuften die Analysten die AMD-Aktie im vergangenen Monat ein
         </a>
+
+        <div class="secondaryText">
+            Im August 2026 haben 16 Experten die &lt;a href=&quot;/aktien/amd-aktie&quot;&gt;AMD (Advanced Micro Devices) &lt;/a&gt;-Aktie analysiert.&lt;!-- sh_cad_1 --&gt;11 Analysten empfehlen die AMD (Advanced Micro...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 09:33
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/cum-ex/steuerskandal-verurteilt-im-cum-ex-skandal-doch-henry-gabay-noch-auf-freiem-fuss1234/100251878.html"
-               target="_blank"
-               rel="noopener">
-                Steuerskandal: Verurteilt im Cum-Ex-Skandal – doch Henry Gabay noch auf freiem Fuß
-            </a>
-        </h2>
-
-        <div class="description">
-            Ein Haftantritt des verurteilten Steuerhinterziehers ist auch ein Jahr nach Rechtskraft des Urteils nicht absehbar. Ein Fall, der exemplarisch zeigt, was geschieht, wenn die Justiz zögert.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/banken-versicherungen/cum-ex/steuerskandal-verurteilt-im-cum-ex-skandal-doch-henry-gabay-noch-auf-freiem-fuss1234/100251878.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/rohstoffe/oelpreis-schock-goldman-sachs-sieht-barrel-preis-bei-bis-zu-120-us-dollar-1036528934"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Ölpreis-Schock: Goldman Sachs sieht Barrel-Preis bei bis zu 120 US-Dollar
         </a>
+
+        <div class="secondaryText">
+            &lt;ul&gt; &lt;li&gt;Goldman Sachs passt Ölpreisprognosen für Brent und WTI deutlich an&lt;/li&gt; &lt;li&gt;Spannungen im Nahen Osten an der Strasse von Hormus treiben die Einschätzung&lt;/li&gt;...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 11:11
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/schweizer-bevorzugen-kombination-aus-kapital-und-rente-966870"
-               target="_blank"
-               rel="noopener">
-                Schweizer bevorzugen Kombination aus Kapital und Rente
-            </a>
-        </h2>
-
-        <div class="description">
-            Studie - Die Menschen in der Schweiz zählen auf eine sichere Altersvorsorge.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/schweizer-bevorzugen-kombination-aus-kapital-und-rente-966870"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/novartis-ceo-vas-narasimhan-gerat-nach-medikamenten-flops-unter-druck-966982"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Novartis-CEO Vas Narasimhan gerät nach Medikamenten-Flops unter Druck
         </a>
+
+        <div class="secondaryText">
+            Pharma - Gleich zwei Medikamenten-Misserfolge innert kurzer Zeit schicken die Novartis-Aktie in den Keller. Das kommt für den Novartis-Chef zu einem schlechten Zeitpunkt.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 11:00
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/erholung-der-baubranche-jefferies-erhoht-spitzen-kursziel-von-geberit-weiter-966823"
-               target="_blank"
-               rel="noopener">
-                Erholung der Baubranche? Jefferies erhöht Spitzen-Kursziel von Geberit weiter
-            </a>
-        </h2>
-
-        <div class="description">
-            Sanitärtechnik - Das US-Finanzinstitut Jefferies erhöht das Kursziel für Geberit weiter auf 712 Franken. Es bleibt die höchste Schätzung im Markt.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/erholung-der-baubranche-jefferies-erhoht-spitzen-kursziel-von-geberit-weiter-966823"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/meta-aktie-im-minus-australien-sagt-social-media-algorithmen-den-kampf-an-1036527131"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Meta-Aktie im Minus: Australien sagt Social-Media-Algorithmen den Kampf an
         </a>
+
+        <div class="secondaryText">
+            Nachdem das Land Ende vergangenen Jahres als erstes weltweit Social-Media-Konten für Kinder und Jugendliche unter 16 Jahren verboten hatte, sollen nun auch ältere Nutzer mehr...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 10:58
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/novartis-verliert-rund-24-milliarden-franken-an-borsenwert-966863"
-               target="_blank"
-               rel="noopener">
-                Novartis verliert rund 24 Milliarden Franken an Börsenwert
-            </a>
-        </h2>
-
-        <div class="description">
-            Pharma - Die Papiere des Pharmariesen Novartis steuern am Dienstag gemessen am vernichteten Börsenwert auf einen historischen Tagesverlust zu.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/novartis-verliert-rund-24-milliarden-franken-an-borsenwert-966863"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/firmus-aktie-openai-deal-koennte-milliarden-bewertung-des-nvidia-partners-vor-boersengang-absichern-1036527873"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Firmus-Aktie: OpenAI-Deal könnte Milliarden-Bewertung des NVIDIA-Partners vor Börsengang absichern
         </a>
+
+        <div class="secondaryText">
+            &lt;ul&gt; &lt;li&gt;OpenAI steigt als Ankerkunde bei den Malaysia-Rechenzentren von Firmus ein&lt;/li&gt; &lt;li&gt;Kontrahierte Kapazität von Firmus übersteigt nun 900 Megawatt&lt;/li&gt; &lt;li&gt;Investoren...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 08:55
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/steuern-recht/recht/vermoegen-getrennt-aber-nicht-geschieden-die-unterschaetzten-risiken1234567/100249391.html"
-               target="_blank"
-               rel="noopener">
-                Vermögen: Getrennt, aber nicht geschieden – die unterschätzten Risiken
-            </a>
-        </h2>
-
-        <div class="description">
-            Einige getrennte Paare schieben eine Scheidung jahrelang auf, ob aus Bequemlichkeit, Scham oder Kalkül. Neben einigen Vorteilen birgt dies aber finanzielle und rechtliche Nachteile.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/steuern-recht/recht/vermoegen-getrennt-aber-nicht-geschieden-die-unterschaetzten-risiken1234567/100249391.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/apple-aktie-vor-der-wichtigsten-keynote-seit-dem-iphone-x-was-analysten-jetzt-erwarten-1036525797"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Apple-Aktie vor der wichtigsten Keynote seit dem iPhone X - was Analysten jetzt erwarten
         </a>
+
+        <div class="secondaryText">
+            &lt;ul&gt; &lt;li&gt;Mittwoch: Erste Keynote unter CEO John Ternus&lt;/li&gt; &lt;li&gt;Morgan Stanley erwartet vom faltbaren iPhone bis zu 14 Milliarden US-Dollar&lt;/li&gt; &lt;li&gt;Analysten rechnen mit grössten...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 08:48
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-aktuell-dax-faellt-unter-26.000-neues-hoch-bei-den-anleiherenditen/100252811.html"
-               target="_blank"
-               rel="noopener">
-                Dax aktuell: Dax fällt unter 26.000 – Neues Hoch bei den Anleiherenditen
-            </a>
-        </h2>
-
-        <div class="description">
-            Der Preis für Brent-Öl liegt nur noch knapp unter 100 Dollar. Anleger reagieren verunsichert. Parallel dazu steigt die Verzinsung deutscher Staatsbonds weiter an.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-aktuell-dax-faellt-unter-26.000-neues-hoch-bei-den-anleiherenditen/100252811.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/boerse-aktuell-08-09-2026-1036527194"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Steigende Ölpreise belasten: SMI tiefrot - Novartis bremst erneut -- DAX stabil - 26&#x27;000 Punkte im Blick -- Rote Vorzeichen an der Wall Street -- Asiens Börsen letztlich uneinheitlich
         </a>
+
+        <div class="secondaryText">
+            &lt;!-- sh_img --&gt; SCHWEIZ Der Schweizer Aktienmarkt hat am Dienstag an die Verluste zum Wochenauftakt angeknüpft. &lt;!-- sh_cad_1 --&gt; Der &lt;a href=&quot;/index/smi&quot; target=&quot;_blank&quot;&gt;SMI&lt;/a&gt;...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 4
-            <span>·</span>
-            08.09.2026 08:48
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-aktuell-dax-faellt-unter-26.000-neues-hoch-bei-den-anleiherenditen/100252811.html"
-               target="_blank"
-               rel="noopener">
-                Dax aktuell: Dax fällt unter 26.000 – Neues Hoch bei den Anleiherenditen
-            </a>
-        </h2>
-
-        <div class="description">
-            Der Preis für Brent-Öl liegt nur noch knapp unter 100 Dollar. Anleger reagieren verunsichert. Parallel dazu steigt die Verzinsung deutscher Staatsbonds weiter an.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-aktuell-dax-faellt-unter-26.000-neues-hoch-bei-den-anleiherenditen/100252811.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/sandoz-will-den-markt-fuer-biosimilars-aufrollen-1036528976"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Sandoz will den Markt für Biosimilars aufrollen
         </a>
+
+        <div class="secondaryText">
+            (Zusammenfassung) Sandoz (awp) - Die frühere Novartis-Tochter Sandoz, vor allem noch bekannt für günstige Nachahmer von Medikamenten wie Diovan oder Lipitor, setzt zunehmend auf...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 08:31
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/steuern-recht/recht/vermoegen-wann-sich-ein-ehevertrag-lohnt-und-wo-sie-geld-sparen-koennen/100224359.html"
-               target="_blank"
-               rel="noopener">
-                Vermögen: Wann sich ein Ehevertrag lohnt – und was er kostet
-            </a>
-        </h2>
-
-        <div class="description">
-            Ein Ehevertrag gilt als unromantisch. Doch ohne Vertrag gelten starre Regeln. Für Unternehmer, Immobilienbesitzer und Paare mit Kindern kann das teuer werden.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/steuern-recht/recht/vermoegen-wann-sich-ein-ehevertrag-lohnt-und-wo-sie-geld-sparen-koennen/100224359.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/eqs-pvr-hugo-boss-ag-release-according-to-article-40-section-1-of-the-wphg-[the-german-securities-trading-act]-with-the-objective-of-europe-wide-distribution-1036528977"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            EQS-PVR: Hugo Boss AG: Release according to Article 40, Section 1 of the WpHG [the German Securities Trading Act] with the objective of Europe-wide distribution
         </a>
+
+        <div class="secondaryText">
+            &lt;table border=&quot;0&quot;&gt;&lt;tr&gt;&lt;td&gt; EQS Voting Rights Announcement: &lt;a href=&quot;/aktien/hugo_boss-aktie&quot;&gt;HUGO BOSS&lt;/a&gt; AG &lt;br/&gt; Hugo Boss AG: Release according to Article 40, Section 1 of the...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 08:24
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/genpact-names-sumita-pandit-cfo;-shares-down-1036528961"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Genpact Names Sumita Pandit CFO; Shares Down
+        </a>
+
+        <div class="secondaryText">
+            (RTTNews) - On Tuesday, Genpact Limited (G), an Agentic Operations company, announced that it has appointed Sumita Pandit as the Chief Financial Officer and Senior Vice President...
         </div>
 
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/dws-deutsche-bank-tochter-wirbt-wieder-als-deutsche-asset-management/100252785.html"
-               target="_blank"
-               rel="noopener">
-                Fondsgesellschaft: DWS wirbt wieder als Deutsche Asset Management
-            </a>
-        </h2>
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
 
-        <div class="description">
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/nachrichten/aktien/oracle-aktie-das-sind-die-analysten-einstufungen-des-vergangenen-monats-1036509242"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Oracle-Aktie: Das sind die Analysten-Einstufungen des vergangenen Monats
+        </a>
+
+        <div class="secondaryText">
+            Die &lt;a href=&quot;/aktien/oracle-aktie&quot;&gt;Oracle&lt;/a&gt;-Aktie wurde im August 2026 von 4 Analysten unter die Lupe genommen.&lt;!-- sh_cad_1 --&gt;3 Experten stufen die Oracle-Aktie als Kauf ein,...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/ruge-der-parlamentsaufsicht-wegen-nicht-eingehaltenem-f-35-fixpreis-967017"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Rüge der Parlamentsaufsicht wegen nicht eingehaltenem F-35- Fixpreis
+        </a>
+
+        <div class="secondaryText">
+            Politik - Der nicht eingehaltene Fixpreis bei der Beschaffung der neuen F-35-Kampfjets hat mit Behördenversagen zu tun.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/amazon-entwickelt-ki-chip-mit-qualcomm-option-auf-einstieg-967010"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Amazon entwickelt KI-Chip mit Qualcomm - Option auf Einstieg
+        </a>
+
+        <div class="secondaryText">
+            Halbleiter - Amazon und Qualcomm entwickeln zusammen Spezialchips für KI-Rechenzentren. Die Partnerschaft umfasst bis zu 60 Milliarden Dollar.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-jones-sp-500-nasdaq-wall-street-eroeffnet-im-minus-keine-tendenz-bei-fed-entscheid/100252961.html"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Dow Jones, S&amp;P 500, Nasdaq: Wall Street eröffnet im Minus – Keine Tendenz bei Fed-Entscheid
+        </a>
+
+        <div class="secondaryText">
+            Nach dem Feiertag am Montag starten die wichtigsten Börsenindizes mit Verlusten in die neue Börsenwoche. Am Anleihemarkt tut sich im frühen Handel wenig.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Handelsblatt Finanzen
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/hoch-gepokert-in-amerika-warum-amrize-im-tief-feststeckt-und-holcim-auftrumpft-966932"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Hoch gepokert in Amerika: Warum Amrize im Tief feststeckt und Holcim auftrumpft
+        </a>
+
+        <div class="secondaryText">
+            Baustoffe - Anders als erwartet, ist die Bewertung von Amrize trotz US-Listing nicht gestiegen. Die ehemalige Mutter Holcim überrascht hingegen positiv.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/borsen-ticker-us-borsen-tendieren-schwacher-olpreise-belasten-smi-weiter-nahe-tagestief-novartis-steuert-auf-grossten-tagesverlust-der-geschichte-zu-966743"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Börsen-Ticker: US-Börsen tendieren schwächer – Ölpreise belasten – SMI weiter nahe Tagestief – Novartis steuert auf grössten Tagesverlust der Geschichte zu
+        </a>
+
+        <div class="secondaryText">
+            +++MÄRKTE+++ - Die Indizes in den USA tendieren am Dienstag leichter.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/ukrainische-zentralbank-russische-angriffe-heizen-inflation-an-966988"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Ukrainische Zentralbank: Russische Angriffe heizen Inflation an
+        </a>
+
+        <div class="secondaryText">
+            Konjunkturdaten - Russische Luftangriffe verschärfen die Inflation in der Ukraine. Laut der Zentralbank könnte die Teuerung 2026 rund zehn Prozent erreichen.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/analyse/infineon-outperform-1104552"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Infineon Outperform
+        </a>
+
+        <div class="secondaryText">
+            NEW YORK (dpa-AFX Analyser) - Das US-Analysehaus Bernstein Research hat die Einstufung für Infineon auf &quot;Outperform&quot; mit einem Kursziel von 102 Euro belassen. Im Geschäft mit der...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch Analysen
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/analyse/scout24-outperform-1104551"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Scout24 Outperform
+        </a>
+
+        <div class="secondaryText">
+            NEW YORK (dpa-AFX Analyser) - Das US-Analysehaus Bernstein Research hat die Einstufung für Scout24 anlässlich einer kürzlich veröffentlichten Studie des Internetportal-Betreibers...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch Analysen
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/finanzbranche-und-polizei-starten-kampagne-gegen-zahlungsbetrug-966976"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Finanzbranche und Polizei starten Kampagne gegen Zahlungsbetrug
+        </a>
+
+        <div class="secondaryText">
+            Kriminalität - Im Kampf gegen Kreditkarten- und andere Zahlungsbetrüger starten Finanzbranche und Polizei eine Sensibilisierungskampagne.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/alcon-prasentiert-neue-linsen-und-op-system-966975"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Alcon präsentiert neue Linsen und OP-System
+        </a>
+
+        <div class="secondaryText">
+            Augenheilmittel - Alcon stellt an der Jahrestagung der Europäischen Gesellschaft für Katarakt- und Refraktivchirurgen in London neue Produkte für die Graustar-Chirurgie vor.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/milliarden-zukauf-ge-aerospace-ubernimmt-triebwerkszulieferer-cpp-966966"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Milliarden-Zukauf: GE Aerospace übernimmt Triebwerkszulieferer CPP
+        </a>
+
+        <div class="secondaryText">
+            Luftfahrttechnik - Der US-Triebwerksbauer GE Aerospace übernimmt den Präzisionsguss-Spezialisten Consolidated Precision Products (CPP).
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.handelsblatt.com/finanzen/banken-versicherungen/grossbank-unicredit-beteiligt-sich-an-deutschem-finanz-start-up/100252943.html"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Großbank: Unicredit beteiligt sich an deutschem Finanz-Start-up
+        </a>
+
+        <div class="secondaryText">
+            Das italienische Geldhaus kündigt eine Beteiligung an VC Trade an. Mit dem Einstieg will Unicredit die internationale Expansion des Start-ups unterstützen.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Handelsblatt Finanzen
+        </div>
+
+    </article>
+    
+    <article class="singleCard">
+
+        <a
+            class="primaryText"
+            href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/dws-deutsche-bank-tochter-wirbt-wieder-als-deutsche-asset-management-01/100252785.html"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Fondsgesellschaft: DWS wirbt wieder als Deutsche Asset Management
+        </a>
+
+        <div class="secondaryText">
             Die Deutsche-Bank-Tochter ändert ihren Markennamen in Deutsche Asset Management. Damit sollen vor allem internationale Kunden weltweit besser erreicht werden.
         </div>
 
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/dws-deutsche-bank-tochter-wirbt-wieder-als-deutsche-asset-management/100252785.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
+        <div class="dateText">
+            08.09.2026 · Handelsblatt Finanzen
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 08:21
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/devisen-rohstoffe/wolfram-was-bedeutet-der-us-exportstopp-fuer-europas-versorgung-herr-wex1234/100249515.html"
-               target="_blank"
-               rel="noopener">
-                Interview: Rohstoffmanager Wex: „Ich frage mich, warum Europa seinen eigenen Schrott nicht schützt“
-            </a>
-        </h2>
-
-        <div class="description">
-            Nachdem China die Exporte des Rohstoffs Wolfram gestoppt hat, reagieren auch die USA. Und Europa? Bleibe untätig, sagt Karlheinz Wex, Chef des größten europäischen Wolframverarbeiters.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/devisen-rohstoffe/wolfram-was-bedeutet-der-us-exportstopp-fuer-europas-versorgung-herr-wex1234/100249515.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.handelsblatt.com/finanzen/anlagestrategie/vermoegen-sechs-fehler-die-ihrem-fruehen-ruhestand-im-weg-stehen/100164519.html"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            FIRE-Bewegung: Wer finanziell frei werden will, sollte auf diese sechs Punkte achten
         </a>
+
+        <div class="secondaryText">
+            Auf dem Weg zur finanziellen Unabhängigkeit kann viel schiefgehen. Ein Frührentner-Paar verrät, wie man die größten Fallstricke vermeidet – und sich den Traum der frühen Rente...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Handelsblatt Finanzen
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 09:57
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/novartis-aktie-mit-taucher-analysten-reduzieren-kursziele-nach-pipeline-dampfer-966825"
-               target="_blank"
-               rel="noopener">
-                Novartis-Aktie mit Taucher: Analysten reduzieren Kursziele nach Pipeline-Dämpfer
-            </a>
-        </h2>
-
-        <div class="description">
-            Pharmazie - Nach den zwei Rückschlägen in der Pipeline von Novartis sinkt das Vertrauen der Analysten. Die Reaktionen in der Übersicht.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/novartis-aktie-mit-taucher-analysten-reduzieren-kursziele-nach-pipeline-dampfer-966825"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/hohe-gas-und-benzinpreise-das-sind-die-gewinner-und-verlierer-der-europaischen-energiekrise-966927"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Hohe Gas- und Benzinpreise: Das sind die Gewinner und Verlierer der europäischen Energiekrise
         </a>
+
+        <div class="secondaryText">
+            Märkte - Diese Energieunternehmen profitieren von steigenden Gaspreisen. Dagegen kämpfen Industrieunternehmen mit höheren Kosten.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 09:20
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/ehemaliger-schweizer-spitzenbankier-gesteht-millionenbestechung-966815"
-               target="_blank"
-               rel="noopener">
-                Ehemaliger Schweizer Spitzenbankier gesteht Millionenbestechung
-            </a>
-        </h2>
-
-        <div class="description">
-            Bundesstrafgericht - Ein ehemaliger Teilhaber der Schweizer Privatbank Mirabaud und früherer Chef der Bankiervereinigung hat Schmiergeldzahlungen in Millionenhöhe gestanden.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/ehemaliger-schweizer-spitzenbankier-gesteht-millionenbestechung-966815"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.cash.ch/news/top-news/grossbritannien-zahlt-rekordzinsen-fur-neue-schulden-966942"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Großbritannien zahlt Rekordzinsen für neue Schulden
         </a>
+
+        <div class="secondaryText">
+            Obligationen - Grossbritannien emittiert Staatsanleihe zum höchsten Zins seit 1998. Finanzminister Healey steht vor grossen Herausforderungen.
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Cash Top-News
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 08:41
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/six-lanciert-neuen-dienst-fur-europaische-borsendaten-966799"
-               target="_blank"
-               rel="noopener">
-                SIX lanciert neuen Dienst für europäische Börsendaten
-            </a>
-        </h2>
-
-        <div class="description">
-            Invest - Über die neue Plattform erhalten professionelle Marktteilnehmer und Privatanleger Zugang zu Kursdaten von Börsen in der Schweiz, Grossbritannien und 16 EU-Märkten.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/six-lanciert-neuen-dienst-fur-europaische-borsendaten-966799"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/analyse/eni-overweight-1104550"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Eni Overweight
         </a>
+
+        <div class="secondaryText">
+            NEW YORK (dpa-AFX Analyser) - Die US-Bank JPMorgan hat die Einstufung für Eni mit einem Kursziel von 26,50 Euro auf &quot;Overweight&quot; belassen. Tenor sei, dass sich die Rohstoffvorräte...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch Analysen
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 08:32
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/ubs-schweizer-stablecoin-projekt-startet-testphase-mit-neuen-partnern-966796"
-               target="_blank"
-               rel="noopener">
-                UBS: Schweizer Stablecoin-Projekt startet Testphase mit neuen Partnern
-            </a>
-        </h2>
-
-        <div class="description">
-            Kryptowährungen - Eine Schweizer Initiative für einen digitalen Franken hat für ihre ‌Testphase ⁠zwei neue Partner gewonnen.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/ubs-schweizer-stablecoin-projekt-startet-testphase-mit-neuen-partnern-966796"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/analyse/bp-neutral-1104549"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            BP Neutral
         </a>
+
+        <div class="secondaryText">
+            NEW YORK (dpa-AFX Analyser) - Die US-Bank JPMorgan hat die Einstufung für BP mit einem Kursziel von 550 Pence auf &quot;Neutral&quot; belassen. Tenor sei, dass sich die Rohstoffvorräte...
+        </div>
+
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch Analysen
+        </div>
 
     </article>
     
-    <article class="news-card">
+    <article class="singleCard">
 
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 06:25
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/devisen-rohstoffe/rohstoffe-ein-neues-naturschutzgesetz-besorgt-die-deutsche-rohstoffindustrie/100250322.html"
-               target="_blank"
-               rel="noopener">
-                Rohstoffe: Ein neues Naturschutzgesetz treibt die deutsche Rohstoffindustrie um
-            </a>
-        </h2>
-
-        <div class="description">
-            Deutschland ist stark abhängig von Rohstoffimporten. Die eigene Produktion soll daher ausgebaut werden. Ein neuer Vorschlag des Umweltministeriums könnte das Ziel aber gefährden.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/devisen-rohstoffe/rohstoffe-ein-neues-naturschutzgesetz-besorgt-die-deutsche-rohstoffindustrie/100250322.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
+        <a
+            class="primaryText"
+            href="https://www.finanzen.ch/analyse/shell-ex-royal-dutch-shell-overweight-1104547"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Shell (ex Royal Dutch Shell) Overweight
         </a>
 
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 07:52
+        <div class="secondaryText">
+            NEW YORK (dpa-AFX Analyser) - Die US-Bank JPMorgan hat die Einstufung für Shell mit einem Kursziel von 3600 Pence auf &quot;Overweight&quot; belassen. Tenor sei, dass sich die...
         </div>
 
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/ascom-erhalt-grossauftrag-von-norwegischer-gesundheitsbehorde-966781"
-               target="_blank"
-               rel="noopener">
-                Ascom erhält Grossauftrag von norwegischer Gesundheitsbehörde
-            </a>
-        </h2>
-
-        <div class="description">
-            Kommunikation - Ascom hat einen von zwei grossen Rahmenverträgen mit Helse Sør-Øst (HSØ), der grössten regionalen Gesundheitsorganisation Norwegens, abgeschlossen.
+        <div class="dateText">
+            08.09.2026 · Finanzen.ch Analysen
         </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/ascom-erhalt-grossauftrag-von-norwegischer-gesundheitsbehorde-966781"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 07:48
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/kupferpreis-steigt-auf-rekordhoch-966780"
-               target="_blank"
-               rel="noopener">
-                Kupferpreis steigt auf Rekordhoch
-            </a>
-        </h2>
-
-        <div class="description">
-            Rohstoffe - An der Londoner Metallbörse LME kostete eine Tonne des Industriemetalls am Montagabend zeitweise 14'533 US-Dollar.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/kupferpreis-steigt-auf-rekordhoch-966780"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 07:17
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/sandoz-setzt-neue-wachstumsziele-bis-2030-und-2035-966766"
-               target="_blank"
-               rel="noopener">
-                Sandoz setzt neue Wachstumsziele bis 2030 und 2035
-            </a>
-        </h2>
-
-        <div class="description">
-            Pharma - Sandoz hat an seinem Investorentag vom Dienstag neue mittelfristige Ziele sowie eine langfristige Wachstumsstrategie für das Biosimilars-Geschäft präsentiert.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/sandoz-setzt-neue-wachstumsziele-bis-2030-und-2035-966766"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 07:14
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/oerlikon-stellt-neue-finanzziele-bis-2030-vor-966765"
-               target="_blank"
-               rel="noopener">
-                Oerlikon stellt neue Finanzziele bis 2030 vor
-            </a>
-        </h2>
-
-        <div class="description">
-            Industrie - Der Industriekonzern Oerlikon strebt bis 2030 einen Umsatz von mehr als 2 Milliarden Franken an.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/oerlikon-stellt-neue-finanzziele-bis-2030-vor-966765"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 06:37
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/smi-dividendenperle-am-dienstag-im-investoren-fokus-966753"
-               target="_blank"
-               rel="noopener">
-                SMI-Dividendenperle am Dienstag im Investoren-Fokus
-            </a>
-        </h2>
-
-        <div class="description">
-            Börse - Die Aktie von Swiss Re hat zu Wochenbeginn unüblich viel verloren. Anleger beobachten nun, ob der Titel weiter nachgibt oder ob der Montag bloss ein Ausrutscher war.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/smi-dividendenperle-am-dienstag-im-investoren-fokus-966753"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 04:30
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-und-boerse-aktuell-fuenf-punkte-die-fuer-anleger-heute-wichtig-sind/100002161.html"
-               target="_blank"
-               rel="noopener">
-                Börse am 8. September: Fünf Punkte, die für Anleger heute wichtig sind
-            </a>
-        </h2>
-
-        <div class="description">
-            Neue Angriffe im Iran-Krieg belasten die Märkte und die Ölpreise. Auch die Ergebnisse der Landtagswahl in Sachsen-Anhalt dämpften die Stimmung am Markt.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-und-boerse-aktuell-fuenf-punkte-die-fuer-anleger-heute-wichtig-sind/100002161.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 4
-            <span>·</span>
-            08.09.2026 04:30
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-und-boerse-aktuell-fuenf-punkte-die-fuer-anleger-heute-wichtig-sind/100002161.html"
-               target="_blank"
-               rel="noopener">
-                Börse am 8. September: Fünf Punkte, die für Anleger heute wichtig sind
-            </a>
-        </h2>
-
-        <div class="description">
-            Neue Angriffe im Iran-Krieg belasten die Märkte und die Ölpreise. Auch die Ergebnisse der Landtagswahl in Sachsen-Anhalt dämpften die Stimmung am Markt.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-und-boerse-aktuell-fuenf-punkte-die-fuer-anleger-heute-wichtig-sind/100002161.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 1
-            <span>·</span>
-            08.09.2026 06:29
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/kalender/tagesvorschau-international/tagesvorschau-international-fur-den-08092026-966750"
-               target="_blank"
-               rel="noopener">
-                Tagesvorschau International für den 08.09.2026
-            </a>
-        </h2>
-
-        <div class="description">
-            - Nachfolgend die wichtigsten Wirtschafts- und Finanztermine vom 08.09.2026:
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/kalender/tagesvorschau-international/tagesvorschau-international-fur-den-08092026-966750"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 1
-            <span>·</span>
-            08.09.2026 06:29
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/kalender/wochenvorschau-schweiz/wochenvorschau-schweiz-08092026-15092026-966751"
-               target="_blank"
-               rel="noopener">
-                Wochenvorschau Schweiz 08.09.2026 - 15.09.2026
-            </a>
-        </h2>
-
-        <div class="description">
-            - Nachfolgend die wichtigsten Wirtschafts- und Finanztermine vom 08.09.2026 - 15.09.2026:
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/kalender/wochenvorschau-schweiz/wochenvorschau-schweiz-08092026-15092026-966751"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            08.09.2026 06:25
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/borsen-ticker-schweizer-aktienmarkt-im-minus-novartis-steuert-auf-grossten-tagesverlust-der-geschichte-zu-nestle-stutzt-den-leitindex-us-futures-verlieren-leicht-966743"
-               target="_blank"
-               rel="noopener">
-                Börsen-Ticker: Schweizer Aktienmarkt im Minus – Novartis steuert auf grössten Tagesverlust der Geschichte zu – Nestlé stützt den Leitindex – US-Futures verlieren leicht
-            </a>
-        </h2>
-
-        <div class="description">
-            +++MÄRKTE+++ - Novartis zieht den SMI am Dienstag runter.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/borsen-ticker-schweizer-aktienmarkt-im-minus-novartis-steuert-auf-grossten-tagesverlust-der-geschichte-zu-nestle-stutzt-den-leitindex-us-futures-verlieren-leicht-966743"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 03:52
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/nikkei-kopsi-csi-300-yen-rally-haelt-an-asiens-boersen-ohne-klare-richtung/100252750.html"
-               target="_blank"
-               rel="noopener">
-                Nikkei, Kopsi, CSI 300: Zinsspekulationen in Japan treiben Yen an – Asiens Börsen ohne klare Richtung
-            </a>
-        </h2>
-
-        <div class="description">
-            Der japanische Yen stieg auf den höchsten Stand seit Mitte Februar. Angetrieben von Kursgewinnen bei Chipwerten legt Südkoreas Kospi zu und erreicht ein Drei-Wochen-Hoch.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/nikkei-kopsi-csi-300-yen-rally-haelt-an-asiens-boersen-ohne-klare-richtung/100252750.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 4
-            <span>·</span>
-            08.09.2026 03:52
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/nikkei-kopsi-csi-300-yen-rally-haelt-an-asiens-boersen-ohne-klare-richtung/100252750.html"
-               target="_blank"
-               rel="noopener">
-                Nikkei, Kopsi, CSI 300: Zinsspekulationen in Japan treiben Yen an – Asiens Börsen ohne klare Richtung
-            </a>
-        </h2>
-
-        <div class="description">
-            Der japanische Yen stieg auf den höchsten Stand seit Mitte Februar. Angetrieben von Kursgewinnen bei Chipwerten legt Südkoreas Kospi zu und erreicht ein Drei-Wochen-Hoch.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/nikkei-kopsi-csi-300-yen-rally-haelt-an-asiens-boersen-ohne-klare-richtung/100252750.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 3
-            <span>·</span>
-            08.09.2026 01:57
-        </div>
-
-        <h2>
-            <a href="https://www.handelsblatt.com/finanzen/immobilien/immobilien-droht-der-immobilienbranche-die-naechste-pleitewelle/100250099.html"
-               target="_blank"
-               rel="noopener">
-                Immobilien: „Die Refinanzierungslücke ist Realität geworden“ – droht eine große Pleitewelle in der Immobilienbranche?
-            </a>
-        </h2>
-
-        <div class="description">
-            Erst Pandion, nun Peters Development: Nach den jüngsten Insolvenzen von zwei Projektentwicklern herrscht Unruhe auf dem Immobilienmarkt. Experten mahnen zur Vorsicht.
-        </div>
-
-        <a class="more"
-           href="https://www.handelsblatt.com/finanzen/immobilien/immobilien-droht-der-immobilienbranche-die-naechste-pleitewelle/100250099.html"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
-
-    </article>
-    
-    <article class="news-card">
-
-        <div class="meta">
-            Quelle 2
-            <span>·</span>
-            07.09.2026 18:00
-        </div>
-
-        <h2>
-            <a href="https://www.cash.ch/news/top-news/von-stromnetzen-bis-seltene-erden-diese-anlageprodukte-begrenzen-die-markt-risiken-966575"
-               target="_blank"
-               rel="noopener">
-                Von Stromnetzen bis Seltene Erden: Diese Anlageprodukte begrenzen die Markt-Risiken
-            </a>
-        </h2>
-
-        <div class="description">
-            Anlegen - Trotz Allzeithochs ziehen an den Aktienbörsen Wolken auf. Nun sind defensivere Anlageprodukte gefragt.
-        </div>
-
-        <a class="more"
-           href="https://www.cash.ch/news/top-news/von-stromnetzen-bis-seltene-erden-diese-anlageprodukte-begrenzen-die-markt-risiken-966575"
-           target="_blank"
-           rel="noopener">
-            Artikel öffnen →
-        </a>
 
     </article>
     
 
 </div>
+
 
 </body>
 
